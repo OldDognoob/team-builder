@@ -2,7 +2,8 @@ import React from 'react';
 
 import styled from "styled-components";
 
-function Form (props) {
+function Form () {
+  console.log();
 
     const handleFormChange = (e) => {
         if (e.target.type === "") {
@@ -51,10 +52,10 @@ function Form (props) {
                 onChange={handleFormChange}
                 />
 
-                <label htmlFor="teamListForm_position">Position</label>
+                <label htmlFor="teamListForm_position">Role</label>
                 <input
                 value={teamListForm.position}
-                id="teamListForm_position"
+                id="teamListForm_role"
                 type="text"
                 placeholder="Please enter your position here"
                 onChange={handleFormChange}

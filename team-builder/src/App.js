@@ -5,7 +5,7 @@ import TeamList from './components/TeamList';
 import './App.css';
 
 
-function App() {
+export default function App() {
 
   const[teamList, setTeamList]= useState({
     name: "",
