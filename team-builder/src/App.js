@@ -1,18 +1,23 @@
-import React from 'react';
-import {useState} from "react";
+import React, {useState} from 'react';
+import Form from './components/Form';
+import TeamList from './components/TeamList';
 
 import './App.css';
 
-const[teamMembers, setTeamMembers]= useState("");
 
 function App() {
-  const onTeamMemberChange= event => {
-    setTeamMemberForm({
-      name: event.target.value
-    });
-  };
+
+  const[teamList, setTeamList]= useState({
+    name: "",
+    email: "",
+    Position:"",
+
+  })
+
   return (
-    <div className="App">  
+    <div className="App"> 
+    <TeamList>
+      </TeamList> 
     </div>
   );
 }
