@@ -1,5 +1,7 @@
 import React, {useState} from 'react';
 
+import styled from 'styled-components';
+
 export default function TeamForm() {
     const[teamForm, setTeamForm] = useState({
         name: "",
@@ -28,7 +30,7 @@ export default function TeamForm() {
             type="text"
             name="name"
             id="name"
-            placeholder="Please enter your name here"
+            placeholder="Enter your name here"
             onChange={handleFormChange}
             value={teamForm.name}
             />
@@ -38,7 +40,7 @@ export default function TeamForm() {
                 type="email"
                 name="email"
                 id="email"
-                plaseholder="Enter you email here please"
+                plaseholder="Enter you email here"
                 onChange={handleFormChange}
                 value={teamForm.email}
                 />
@@ -48,7 +50,7 @@ export default function TeamForm() {
                 type="text"
                 name="role"
                 id="role" 
-                placeholder="Please enter your role here"
+                placeholder="Enter your role here"
                 onChange={handleFormChange}
                 value={teamForm.role}
                 />
@@ -56,3 +58,12 @@ export default function TeamForm() {
         </div>
     )
 }
+
+
+const StyledTeamForm = styled.div`
+     height: 80px;
+     margin-top: 20px;
+     border-radius: 10px;
+     background-color: #FF5A5F
+   
+`;
