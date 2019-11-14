@@ -1,58 +1,16 @@
-import React, {useState} from 'react';
+import React from 'react';
 
-export default function TeamList() {
-    const[teamForm, setTeamForm] = useState({
-        name: "",
-        email: "",
-        role:""
-    });
-
-    const handleFormChange = (event) => {
-        setTeamForm({
-            ...teamForm,
-            [event.target.name]:event.target.value
-        })
-    };
-
-    const handleSubmit = event => {
-        event.preventDefault();
-        event.persist();
-        console.log(event);
-    };
-
+export default function TeamList({team}) {
     return (
-        <div className="TeamListForm">
-            <form onSubmi={handleSubmit}>
-            <label htmlFor="teamform_name">Name</label>
-            <input
-            type="text"
-            name="name"
-            id="name"
-            placeholder="Please enter your name here"
-            onChange={handleFormChange}
-            value={teamForm.name}
-            />
-
-            <label htmlFor="teamform_email">Email: </label>
-            <input
-                type="email"
-                name="email"
-                id="email"
-                plaseholder="Enter you email here please"
-                onChange={handleFormChange}
-                value={teamForm.email}
-                />
-
-            <label htmlFor="teamform_role">Role: </label>
-            <input
-                type="text"
-                name="role"
-                id="role" 
-                placeholder="Please enter your role here"
-                onChange={handleFormChange}
-                value={teamForm.role}
-                />
-            </form>
+        <div className="team-list">
+            {team.map(team => ( 
+                <div className="team" key={team.id}>
+                    <h2>{team.name}</h2>
+                    <p>{team.email}</p>
+                    <p>{team.role}</p>
+                 </div>   
+            ))}
         </div>
-    )
-}
+    );
+
+};

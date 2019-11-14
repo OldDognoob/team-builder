@@ -1,76 +1,58 @@
-import React from 'react';
+import React, {useState} from 'react';
 
-import styled from "styled-components";
+export default function TeamForm() {
+    const[teamForm, setTeamForm] = useState({
+        name: "",
+        email: "",
+        role:""
+    });
 
-function Form () {
-  console.log();
+    const handleFormChange = (event) => {
+        setTeamForm({
+            ...teamForm,
+            [event.target.name]:event.target.value
+        })
+    };
 
-    const handleFormChange = (e) => {
-        if (e.target.type === "") {
-            setTeamList({
-              ...TeamList,
-              [e.target.name]: e.target.checked
-            });
-          } else {
-            if (/[A-Za-z]/g.test(e.target.value)) {
-            setTeamList({
-                ...TeamList,
-                [e.target.name]: e.target.value
-              });
-            }
-          }
-        }
+    const handleSubmit = event => {
+        event.preventDefault();
+        event.persist();
+        console.log(event);
+    };
 
-        const handleSubmit = e => {
-            e.preventDefault();
-            e.persist();
-            console.log(e);
-            console.log(e.target.name.value);
-            console.log(e.target.email.value);
-            console.log(e.target.position.value);
-        };
+    return (
+        <div className="TeamForm">
+            <form onSubmi={handleSubmit}>
+            <label htmlFor="teamform_name">Name</label>
+            <input
+            type="text"
+            name="name"
+            id="name"
+            placeholder="Please enter your name here"
+            onChange={handleFormChange}
+            value={teamForm.name}
+            />
 
-    return(
-        <div className="TeamList">
-            <h1>Team Form</h1>
-            <form onSubmit={handleSubmit}>
-                <label htmlFor="teamListForm_name">Name</label>
-                <input
-                value={teamListForm.name}
-                id='teamListForm_name'
-                type='text'
-                placeholder="Please enter your name here"
+            <label htmlFor="teamform_email">Email: </label>
+            <input
+                type="email"
+                name="email"
+                id="email"
+                plaseholder="Enter you email here please"
                 onChange={handleFormChange}
+                value={teamForm.email}
                 />
 
-                <label htmlFor="teamListForm_email">Email</label>
-                <input
-                value={teamListForm.email}
-                id='teamListForm_email'
-                type='text'
-                placeholder="Please enter your email here"
-                onChange={handleFormChange}
-                />
-
-                <label htmlFor="teamListForm_position">Role</label>
-                <input
-                value={teamListForm.position}
-                id="teamListForm_role"
+            <label htmlFor="teamform_role">Role: </label>
+            <input
                 type="text"
-                placeholder="Please enter your position here"
+                name="role"
+                id="role" 
+                placeholder="Please enter your role here"
                 onChange={handleFormChange}
+                value={teamForm.role}
                 />
-
-                <button
-                disabled
-                >
-                    Submit
-                </button>
             </form>
         </div>
-    );
+    )
 }
-
-export default Form;
-
-
