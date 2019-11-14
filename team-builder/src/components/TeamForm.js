@@ -54,6 +54,7 @@ export default function TeamForm() {
                 onChange={handleFormChange}
                 value={teamForm.role}
                 />
+                <button>Submit</button>
             </form>
         </div>
     )
