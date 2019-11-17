@@ -1,6 +1,5 @@
 import React, {useState} from 'react';
 
-import styled from 'styled-components';
 
 export default function TeamForm() {
     const[teamForm, setTeamForm] = useState({
@@ -24,7 +23,7 @@ export default function TeamForm() {
 
     return (
         <div className="TeamForm">
-            <form onSubmi={handleSubmit}>
+            <form onSubmit={handleSubmit}>
             <label htmlFor="teamform_name">Name</label>
             <input
             type="text"
@@ -61,10 +60,3 @@ export default function TeamForm() {
 }
 
 
-const StyledTeamForm = styled.div`
-     height: 80px;
-     margin-top: 20px;
-     border-radius: 10px;
-     background-color: #FF5A5F
-   
-`;
