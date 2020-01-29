@@ -1,4 +1,4 @@
-.App {
+/* .App {
   text-align: center;
 }
 
@@ -11,10 +11,21 @@
   .App-logo {
     animation: App-logo-spin infinite 20s linear;
   }
-}
+} */
+@import url('https://fonts.google.com/?selection.family=Cormorant+Garamond');
 
+html,
+body,
+.App,
+
+#root {
+  min-height: 100vh;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
 .App-header {
-  background-color: #282c34;
+  background-color: #3a1136;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -24,15 +35,76 @@
   color: white;
 }
 
-.App-link {
+/* .App-link {
   color: #61dafb;
-}
+} */
 
-@keyframes App-logo-spin {
+/* @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);
   }
   to {
     transform: rotate(360deg);
   }
+} */
+
+.team-list {
+  display: flex;
+  flex-wrap: wrap;
+ 
+}
+
+.teamForm {
+  background: rgb(247, 247, 108);
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.12), 0 5px 2px rgba(0, 0, 0, 0.24);
+  width: 100%;
+  max-width: 350px;
+  padding: 10px;
+  margin: 16px auto;
+  text-align: left;
+}
+form {
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+}
+button {
+  background: #FF7EB9;
+  background-image: linear-gradient(-315deg, rgb(248, 77, 154) 40%,#FF65A3 100%);
+  border: 1px solid #FF65A3;
+  padding: 10px 15px;
+  font-size: 16px;
+  color: #191919;
+  box-shadow: 0 2px 5px 1px rgba(0, 0, 0, 0.12), 0 2px 2px 1px rgba(0, 0, 0, 0.24);
+  transition: all 0.2 ease-in;
+}
+button:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 2px 6px 2px rgba(0, 0, 0, 0.12), 0 2px 3px 2px rgba(0, 0, 0, 0.24);
+  background: #FF65A3;
+}
+button:active {
+  background: #FF7EB9;
+          box-shadow: inset 0px 0px 5px #FF65A3;
+   outline: none;
+}
+input {
+  width: 255px;
+  padding: 16px 22px;
+  margin: 15px 15px;
+  box-sizing: border-box;
+  border: 2px solid #FF65A3;
+  border-radius: 4px;
+}
+
+.App {
+  font-family: 'Cormorant Garamond', serif;
+  text-align: center;
+  background-image: linear-gradient(-315deg, #7AFCFF 40%,#41B6D7 100%);
+  padding: 32px;
+  letter-spacing: 2px;
+}
+h1, h2{
+  margin: 0 auto;
+  
 }
