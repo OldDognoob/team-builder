@@ -22,7 +22,8 @@ export default function TeamForm() {
         console.log(TeamForm);
 
         const initialState = {
-            name: '',
+            firstName: "",
+            lastName: "",
             email: '',
             role: '',
         }
@@ -68,7 +69,7 @@ export default function TeamForm() {
             onChange={changeHandler}
             value={TeamForm.email}
             />
-            <button type="submit">Add Note</button>
+            <button type="submit">Submit</button>
             </form>
         </div>
     )
