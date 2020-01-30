@@ -8,15 +8,17 @@ import TeamList from './components/TeamList';
 function App() {
   const[team, setTeam]= useState([]);
 
-  const addNewTeam=team => {
-    const newTeam = {
+  const addNewTeam=member => {
+    const newMember = {
       id: Date.now(),
-      name: team.name,
-      email:team.email,
-      role: team.role
+      name: member.name,
+      email:member.email,
+      role: member.role
     };
-
-    setTeam([...team, newTeam]);
+    // console.log(team);
+    setTeam([...team, newMember]);
+    
+  
   }
 
   return(

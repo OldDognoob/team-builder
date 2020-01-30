@@ -1,6 +1,6 @@
 import React , { useState } from "react";
 
-export default function TeamForm() {
+export default function TeamForm({addNewTeam}) {
     const [teamForm, setTeamForm] = useState({
         name: '',
         email: '',
@@ -16,14 +16,10 @@ export default function TeamForm() {
 
     function submitHandler(e) {
         e.preventDefault();
-        e.persist();
-        console.log(e);
-
-        console.log(TeamForm);
+        addNewTeam(teamForm);
 
         const initialState = {
-            firstName: "",
-            lastName: "",
+            name: "",
             email: '',
             role: '',
         }
@@ -33,32 +29,23 @@ export default function TeamForm() {
     return(
         <div className="TeamForm">
             <form onSubmit={submitHandler}>
-            <label htmlFor="teamform_firstName">FirstName</label>
+            <label htmlFor="teamform_name">Name</label>
             <input 
             type="text"
-            id="teamform_firstName"
-            name="firstName"
-            placeholder=" Please enter your FirstName here"
+            id="teamform_name"
+            name="name"
+            placeholder=" Please enter your name here"
             onChange={changeHandler}
-            value={TeamForm.firstName}
-            />
-            <label htmlFor="teamform_firstName">LastName</label>
-            <input 
-            type="text"
-            id="teamform_lastName"
-            name="lastName"
-            placeholder="Please enter your LastName here"
-            onChange={changeHandler}
-            value={TeamForm.lastName}
+            value={teamForm.name}
             />
             <label htmlFor="teamform_teamRole">Team Role</label>
             <input 
             type="text"
             id="teamform_teamRole"
-            name="teamRole"
+            name="role"
             placeholder="Please enter your TeamRole here"
             onChange={changeHandler}
-            value={TeamForm.teamRole}    
+            value={teamForm.role}    
             />
             <label htmlFor="teamform_email">Email</label>
             <input 
@@ -67,7 +54,7 @@ export default function TeamForm() {
             name="email"
             placeholder="Please enter your Email here"
             onChange={changeHandler}
-            value={TeamForm.email}
+            value={teamForm.email}
             />
             <button type="submit">Submit</button>
             </form>
