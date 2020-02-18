@@ -1,69 +1,63 @@
-import React, {useState} from 'react';
+import React , { useState } from "react";
 
-import styled from 'styled-components';
-
-export default function TeamForm() {
-    const[teamForm, setTeamForm] = useState({
-        name: "",
-        email: "",
-        role:""
+export default function TeamForm({addNewTeam}) {
+    const [teamForm, setTeamForm] = useState({
+        name: '',
+        email: '',
+        role: '',
     });
 
-    const handleFormChange = (event) => {
+    function changeHandler(e) {
         setTeamForm({
             ...teamForm,
-            [event.target.name]:event.target.value
+            [e.target.name]: e.target.value
         })
     };
 
-    const handleSubmit = event => {
-        event.preventDefault();
-        event.persist();
-        console.log(event);
-    };
+    function submitHandler(e) {
+        e.preventDefault();
+        addNewTeam(teamForm);
 
-    return (
+        const initialState = {
+            name: "",
+            email: '',
+            role: '',
+        }
+        setTeamForm(initialState);
+    }
+
+    return(
         <div className="TeamForm">
-            <form onSubmi={handleSubmit}>
+            <form onSubmit={submitHandler}>
             <label htmlFor="teamform_name">Name</label>
-            <input
+            <input 
             type="text"
+            id="teamform_name"
             name="name"
-            id="name"
-            placeholder="Enter your name here"
-            onChange={handleFormChange}
+            placeholder=" Please enter your name here"
+            onChange={changeHandler}
             value={teamForm.name}
             />
-
-            <label htmlFor="teamform_email">Email: </label>
-            <input
-                type="email"
-                name="email"
-                id="email"
-                plaseholder="Enter you email here"
-                onChange={handleFormChange}
-                value={teamForm.email}
-                />
-
-            <label htmlFor="teamform_role">Role: </label>
-            <input
-                type="text"
-                name="role"
-                id="role" 
-                placeholder="Enter your role here"
-                onChange={handleFormChange}
-                value={teamForm.role}
-                />
+            <label htmlFor="teamform_teamRole">Team Role</label>
+            <input 
+            type="text"
+            id="teamform_teamRole"
+            name="role"
+            placeholder="Please enter your TeamRole here"
+            onChange={changeHandler}
+            value={teamForm.role}    
+            />
+            <label htmlFor="teamform_email">Email</label>
+            <input 
+            type="text"
+            id="teamform_email"
+            name="email"
+            placeholder="Please enter your Email here"
+            onChange={changeHandler}
+            value={teamForm.email}
+            />
+            <button type="submit">Submit</button>
             </form>
         </div>
     )
 }
-
-
-const StyledTeamForm = styled.div`
-     height: 80px;
-     margin-top: 20px;
-     border-radius: 10px;
-     background-color: #FF5A5F
-   
-`;

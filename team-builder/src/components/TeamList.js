@@ -1,5 +1,7 @@
 import React from 'react';
 
+
+
 export default function TeamList({team}) {
     return (
         <div className="team-list">
@@ -14,3 +16,4 @@ export default function TeamList({team}) {
     );
 
 };
+
